@@ -1,0 +1,159 @@
+@import url(theme.css);
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all 200ms ease-in-out;
+}
+body
+{
+    background-color: var(--darkColor);
+}
+
+.container
+{
+    padding: 2rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media(max-width:650px)
+{
+    .container
+    {
+        padding: 0;
+    }
+}
+
+
+/* -------- Card -------- */
+.card
+{
+    background-color: var(--darkColor);
+    border: 2px solid var(--borderColor);
+    border-radius: var(--borderRadius);
+    
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--globalPadding)*3);
+    margin: calc(var(--globalPadding)*2) 0;
+
+    width: 50rem;
+}
+@media(max-width:60rem)
+{
+    .card
+    {
+        width:100%
+    }
+}
+.card .card-title
+{
+    margin-bottom: calc(var(--globalPadding)*1.5);
+}
+.card .card-title h1
+{
+    font-size: var(--fontSizeBig);
+    color: var(--lightColor);
+}
+.card .card-title p
+{
+    color: var(--lightColorMinor);
+}
+.card button
+{
+    user-select:none;
+
+    font-size: var(--fontSizeSmall);
+    font-weight: 700;
+    border-radius: calc(var(--borderRadius)*2);
+    
+    margin-top: var(--globalPadding);
+    padding: calc(var(--globalPadding)*.8) calc(var(--globalPadding)*2.5);
+
+    transition: all .3s ease-in-out;
+
+    background-color: var(--accentColor);
+    color: var(--lightColor);
+}
+.card button:active
+{
+    transform: scale(.9);
+    filter: brightness(.8);
+}
+
+
+/* -------- Inputs -------- */
+.inputContainer
+{
+    color: var(--lightColorMinor);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap:0 calc(var(--globalPadding)*2);
+    align-items: center;
+}
+.inputContainer > div
+{
+    padding: calc(var(--globalPadding)*.7) 0;
+    display: flex;
+    flex-direction: column;
+    gap:calc(var(--globalPadding)*.5) 0;
+    width: 20rem;
+}
+.inputContainer > div > input ,select
+{
+    background-color: var(--darkerColor);
+    border: 1px solid var(--borderColor);
+    border-radius: calc(var(--globalPadding)*.5);
+    padding: calc(var(--globalPadding)*.7);
+    outline: none;
+    color: var(--lightColor);
+}
+.inputContainer > div > input:focus
+{
+    border-color: var(--accentColor);
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button 
+{ 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+input[type="date"]
+{
+    font-family: 'Montserrat', sans-serif;
+}
+input[type="date"]::-webkit-calendar-picker-indicator 
+{
+    color-scheme: dark;
+    background-color: var(--darkerColor);
+}
+/* -------- Table -------- */
+.tableContainer
+{
+    overflow-x:auto;
+}
+.tableContainer table
+{
+    width: 100%;
+}
+.tableContainer th,.tableContainer td
+{
+    font-size: var(--fontSizeSmall);
+    background-color: var(--darkerColor);
+    padding: calc(var(--globalPadding)*.5) var(--globalPadding);
+}
+.tableContainer th
+{
+    color: var(--lightColorMinor);
+    font-weight: 400;
+}
+.tableContainer td
+{
+    color: var(--lightColor);
+    font-weight: 200;
+}
