@@ -38,6 +38,8 @@ function getTag(obj)
         input = document.createElement("input");
     }
 
+    input.value = "";
+
 
     const inputTagContainer  = document.createElement("div");
     const inputlabel = document.createElement("label");
@@ -45,7 +47,7 @@ function getTag(obj)
     inputlabel.innerText = key;
     inputTagContainer.append(inputlabel);
     inputTagContainer.append(input);
-
+    
     inputFields.push(input);
 
     return inputTagContainer;
@@ -75,6 +77,11 @@ function addData()
     let tableRow = document.createElement("tr");
     for(field of inputFields)
     {
+        if(field.value == "")
+        {
+            alert("Fill All Details");
+            return;
+        }
         let tableData = document.createElement("td");
         tableRow.appendChild(tableData);
         tableData.innerText = field.value;

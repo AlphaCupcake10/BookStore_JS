@@ -64,6 +64,8 @@ body
 .card button
 {
     user-select:none;
+    border: none;
+    outline: none;
 
     font-size: var(--fontSizeSmall);
     font-weight: 700;
@@ -111,7 +113,7 @@ body
     outline: none;
     color: var(--lightColor);
 }
-.inputContainer > div > input:focus
+.inputContainer > div > input:focus,.inputContainer > div > select:focus 
 {
     border-color: var(--accentColor);
 }
@@ -125,11 +127,11 @@ input[type=number]::-webkit-outer-spin-button
 }
 input[type="date"]
 {
+    color-scheme: dark;
     font-family: 'Montserrat', sans-serif;
 }
 input[type="date"]::-webkit-calendar-picker-indicator 
 {
-    color-scheme: dark;
     background-color: var(--darkerColor);
 }
 /* -------- Table -------- */
@@ -156,4 +158,12 @@ input[type="date"]::-webkit-calendar-picker-indicator
 {
     color: var(--lightColor);
     font-weight: 200;
+}
+.tableContainer tr:nth-child(even)
+{
+    filter: brightness(1.2);
+}
+.tableContainer tr:hover
+{
+    filter: brightness(1.4);
 }

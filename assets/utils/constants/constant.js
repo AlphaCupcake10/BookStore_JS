@@ -40,9 +40,9 @@ const getInputObjArr = function(){
             id : "DiscountInput"
         },
         {
-            key : "Year of Publish",
+            key : "Date of Publish",
             type : DATE,
-            id : "YearOfPublishInput"
+            id : "DateOfPublishInput"
         },
         {
             key : "In Stock",
