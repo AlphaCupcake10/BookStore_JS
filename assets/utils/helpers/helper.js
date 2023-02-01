@@ -74,7 +74,6 @@ function createTable()
 //addData
 function addData()
 {
-    let tableRow = document.createElement("tr");
     for(field of inputFields)
     {
         if(field.value == "")
@@ -82,6 +81,10 @@ function addData()
             alert("Fill All Details");
             return;
         }
+    }
+    let tableRow = document.createElement("tr");
+    for(field of inputFields)
+    {
         let tableData = document.createElement("td");
         tableRow.appendChild(tableData);
         tableData.innerText = field.value;
