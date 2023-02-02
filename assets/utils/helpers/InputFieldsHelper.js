@@ -133,3 +133,35 @@ function checkForErrorsAll(inputDivs)//return true if found
 
     return result;
 }
+
+function random(type,length)
+{
+    var letters = '0123456789';
+    let result = '';
+    if(type == constants.NUMBER)
+    {
+        for (var i = 0; i < length; i++) {
+            result += letters[Math.floor(Math.random() * letters.length)];
+        }
+    }
+    if(type == constants.TEXT)
+    {
+        letters = '0123456789abcdefghijklmnopqrstuvwxyz';
+        for (var i = 0; i < length; i++) {
+            result += letters[Math.floor(Math.random() * letters.length)];
+        }
+    }
+    return result;
+}
+function fillRandom(inputFieldsArray)
+{
+    for(inputField of inputFieldsArray)
+    {
+        inputField.value = random(inputField.type,10);
+        if(inputField.id == 'DiscountInput')
+        {
+            inputField.value = Math.floor(Math.random() * 100);
+        }
+        console.log(inputField.value);
+    }
+}

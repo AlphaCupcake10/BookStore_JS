@@ -41,11 +41,15 @@ body
 
     width: 50rem;
 }
+.card.big
+{
+    width: 100%;
+}
 @media(max-width:60rem)
 {
-    .card
+    .card,.card.big
     {
-        width:100%
+        width:100%;
     }
 }
 .card .card-title
