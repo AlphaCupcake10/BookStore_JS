@@ -71,7 +71,7 @@ body
     font-weight: 700;
     border-radius: calc(var(--borderRadius)*2);
     
-    margin-top: var(--globalPadding);
+    margin-top: calc(var(--globalPadding)*2);
     padding: calc(var(--globalPadding)*.8) calc(var(--globalPadding)*2.5);
 
     transition: all .3s ease-in-out;
@@ -93,7 +93,7 @@ body
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    gap:0 calc(var(--globalPadding)*2);
+    gap:calc(var(--globalPadding)*.5) calc(var(--globalPadding)*2);
     align-items: center;
 }
 .inputContainer > div
@@ -104,7 +104,7 @@ body
     gap:calc(var(--globalPadding)*.5) 0;
     width: 20rem;
 }
-.inputContainer > div > input ,select
+.inputContainer > div > input ,.inputContainer > div > select
 {
     background-color: var(--darkerColor);
     border: 1px solid var(--borderColor);
@@ -134,6 +134,27 @@ input[type="date"]::-webkit-calendar-picker-indicator
 {
     background-color: var(--darkerColor);
 }
+
+
+/* Error Fields */
+.error
+{
+    color: var(--errorColor);
+    position: relative;
+}
+.error[error-message]::after
+{
+    content: attr(error-message);
+    font-size: var(--fontSizeSmall);
+    position:absolute;
+    bottom: calc(var(--globalPadding)*-.5);
+}
+.error input,.error select
+{
+    border-color: var(--errorColor) !important;
+}
+
+
 /* -------- Table -------- */
 .tableContainer
 {

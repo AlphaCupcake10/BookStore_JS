@@ -5,48 +5,46 @@ const constants = {
     BOOLEAN : "boolean"
 }
 
-const {NUMBER, TEXT, DATE, BOOLEAN} = constants;
-
-const getInputObjArr = function(){
+const getGetInputFieldsConstant = function(){
     return [
         {
             key: "ISBN",
-            type : NUMBER,
+            type : constants.NUMBER,
             id : "ISBNInput"
         },
         {   
             key : "Author Name",
-            type : TEXT,
+            type : constants.TEXT,
             id : "AuthorNameInput"
         },
         {
             key : "Book Name",
-            type : TEXT,
+            type : constants.TEXT,
             id : "BookNameInput"
         },
         {
             key : "Price",
-            type : NUMBER,
+            type : constants.NUMBER,
             id : "PriceInput"
         },
         {
             key : "Pages",
-            type : NUMBER,
+            type : constants.NUMBER,
             id : "PagesInput"
         },
         {
             key :  "Discount",
-            type : NUMBER,
+            type : constants.NUMBER,
             id : "DiscountInput"
         },
         {
             key : "Date of Publish",
-            type : DATE,
+            type : constants.DATE,
             id : "DateOfPublishInput"
         },
         {
             key : "In Stock",
-            type : BOOLEAN,
+            type : constants.BOOLEAN,
             id : "InStockInput"
         }
     ];

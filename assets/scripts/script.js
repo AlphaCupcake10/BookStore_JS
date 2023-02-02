@@ -1,12 +1,30 @@
-const inputArr = getInputObjArr().map((element)=>getTag(element));
+//generate Input Fields
+let [inputDivs,inputFieldsArray] = generateInputFields();
+document.querySelector(".inputContainer").append(...inputDivs);
+getAndClearInputFieldValues(inputFieldsArray);
 
-let inputContainer = document.getElementsByClassName("inputContainer")[0];
-
-inputArr.forEach(val => inputContainer.appendChild(val));
-
-const tableContainer = document.getElementsByClassName("tableContainer")[0];
-const table = createTable();
+//generate Table
+const tableContainer = document.querySelector(".tableContainer");
+const [table,tableBody] = generateTable(getGetInputFieldsConstant());
 tableContainer.appendChild(table);
 
+//Appy Error checker
+for(inputField of inputFieldsArray)
+{
+    inputField.addEventListener("keyup",keyupErrorChecker);
+}
+function keyupErrorChecker(event)
+{
+    checkForErrors(event.target.parentNode,true);
+}
 
-document.querySelector("#saveBtn").addEventListener("click", addData);
+//Appy Error checker on button press and save
+document.querySelector("#saveBtn").addEventListener("click",buttonClicked);
+function buttonClicked()
+{
+    if(checkForErrorsAll(inputDivs) == false)
+    {
+        //rectify TODO
+        appendToTable(getAndClearInputFieldValues(inputFieldsArray),tableBody);
+    }
+}
