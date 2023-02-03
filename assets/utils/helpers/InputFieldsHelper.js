@@ -51,9 +51,11 @@ function getAndClearInputFieldValues(inputFieldsArray)
     let result = [];
     for(field of inputFieldsArray)
     {
+        rectifyValue(field);//function from model
         result.push(field.value);
         field.value = "";
     }
+    // console.log(result);
     return result;
 }
 
@@ -66,7 +68,7 @@ function setErrorMessage(parentDiv,message)
         parentDiv.classList.add("error");
 }
 
-function checkForErrors(parentDiv,allowEmpty)//returns true if an error and marks as red
+function checkForErrorsAndMark(parentDiv,allowEmpty)//returns true if an error and marks as red
 {
     let inputField = parentDiv.children[1];
     
@@ -83,49 +85,21 @@ function checkForErrors(parentDiv,allowEmpty)//returns true if an error and mark
             return true;
         }
     }
-    if(inputField.id == "ISBNInput")
-    {
-        if(inputField.value.length != 13 && inputField.value.length != 10)
-        {
-            setErrorMessage(parentDiv,"Enter an ISBN of length 13 or 10");
-            return true;
-        }
-    }
-    else if(inputField.id == "DiscountInput")
-    {
-        if(inputField.value < 0 || inputField.value > 100)
-        {
-            setErrorMessage(parentDiv,"Enter a valid discount amount");
-            return true;
-        }
-    }
-    else if(inputField.id == "BookNameInput" || inputField.id == "AuthorNameInput")
-    {
-        if(inputField.value.trim().length == 0)
-        {
-            setErrorMessage(parentDiv,"Enter a valid name");
-            return true;
-        }
-    }
-    else if(inputField.id == "PagesInput" || inputField.id == "PriceInput")
-    {
-        if(inputField.value <= 0)
-        {
-            setErrorMessage(parentDiv,"Enter a valid number");
-            return true;
-        }
-    }
-    setErrorMessage(parentDiv,"");
-    return false;
+
+    let errorMessage = computeErrorMessage(inputField);
+    
+    setErrorMessage(parentDiv,errorMessage);
+
+    return errorMessage.length != 0;
 }
 
-function checkForErrorsAll(inputDivs)//return true if found
+function checkForErrorsAndMarkAll(inputDivs)//return true if found
 {
     let result = false;
 
     for(let parentDiv of inputDivs)
     {
-        if(checkForErrors(parentDiv,false))
+        if(checkForErrorsAndMark(parentDiv,false))
         {
             result = true;
         }

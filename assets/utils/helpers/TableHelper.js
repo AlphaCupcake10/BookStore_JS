@@ -15,10 +15,6 @@ function generateTable(InputObjArrConstant)//returns table and body of table
     return [table,tableBody];
 }
 
-function clearTable(tableBody)
-{
-    tableBody.innerHTML = "";
-}
 
 function appendToTable(inputValues,tableBody)
 {
@@ -33,6 +29,10 @@ function appendToTable(inputValues,tableBody)
     tableBody.appendChild(tableRow);
 }
 
+function clearTable(tableBody)
+{
+    tableBody.innerHTML = "";
+}
 function setTable(inputValuesAll,tableBody)
 {
     clearTable();

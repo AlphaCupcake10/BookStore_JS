@@ -190,5 +190,5 @@ input[type="date"]::-webkit-calendar-picker-indicator
 }
 .tableContainer tr:hover
 {
-    filter: brightness(1.4);
+    filter: brightness(1.8);
 }
