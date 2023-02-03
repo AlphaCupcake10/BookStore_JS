@@ -75,7 +75,6 @@ body
     font-weight: 700;
     border-radius: calc(var(--borderRadius)*2);
     
-    margin-top: calc(var(--globalPadding)*2);
     padding: calc(var(--globalPadding)*.8) calc(var(--globalPadding)*2.5);
 
     transition: all .3s ease-in-out;
@@ -156,6 +155,25 @@ input[type="date"]::-webkit-calendar-picker-indicator
 .error input,.error select
 {
     border-color: var(--errorColor) !important;
+}
+
+.buttonDiv
+{
+    margin-top: calc(var(--globalPadding)*1.5);
+    display: flex;
+
+    align-items: center;
+    gap: var(--globalPadding);
+}
+.buttonDiv p
+{
+    color: var(--accentColor);
+    opacity: 1;
+}
+.buttonDiv.hide p
+{
+    transform: translateX(-2rem);
+    opacity: 0;
 }
 
 

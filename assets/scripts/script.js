@@ -19,6 +19,7 @@ function keyupErrorChecker(event)
 }
 
 //Appy Error checker on button press and save
+let buttonParent = document.querySelector(".buttonDiv");
 document.querySelector("#saveBtn").addEventListener("click",buttonClicked);
 function buttonClicked()
 {
@@ -27,5 +28,10 @@ function buttonClicked()
         let inputFieldValues = getAndClearInputFieldValues(inputFieldsArray);
         
         appendToTable(inputFieldValues,tableBody);
+
+        buttonParent.classList.remove("hide");
+        setTimeout(() => {
+            buttonParent.classList.add("hide");
+        }, 4000);
     }
 }
